@@ -1,6 +1,4 @@
-# README
-
-## Project Overview
+# Project Overview
 
 This codebase adopts a decoupled architecture composed of:
 
@@ -11,7 +9,7 @@ During development the frontend runs on `http://localhost:3000` and communicates
 
 ## File & Folder Structure
 
-```
+``` txt
 .
 ├── backend/
 │   ├── mvnw, mvnw.cmd
@@ -86,7 +84,7 @@ During development the frontend runs on `http://localhost:3000` and communicates
 4. Service returns results to the controller, which serializes them as JSON responses.
 5. Frontend receives the JSON payload and updates component state to render the latest data.
 
-```
+``` txt
 Client (Next.js) --> fetch() --> Spring Boot Controller --> Service --> Response JSON --> Client state update
 ```
 
@@ -121,7 +119,12 @@ npm install
 
 ## Environment Setup
 
-Create the following environment files before running the application.
+Create the following environment files before running the application. Sample templates are provided at `backend/env.example` and `frontend/env.example`.
+
+```bash
+cp backend/env.example backend/.env.local    # adjust values as needed
+cp frontend/env.example frontend/.env.local  # consumed by Next.js
+```
 
 ### Backend (`backend/src/main/resources/application.properties`)
 
