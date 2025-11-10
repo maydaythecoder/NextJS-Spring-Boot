@@ -1,0 +1,45 @@
+# macOS
+.DS_Store
+
+# IDE metadata
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Environment and secrets
+.env
+.env.*
+*.env
+*.env.*
+
+# Backend build artifacts
+backend/target/
+backend/.mvn/timing.properties
+backend/.mvn/wrapper/maven-wrapper.properties
+
+# Backend logs
+backend/logs/
+backend/*.log
+backend/**/logs/
+
+# Frontend build artifacts
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.turbo/
+
+# Coverage outputs
+coverage/
+frontend/coverage/
+backend/coverage/
+
+# Dependency scanners and reports
+report/
+dependency-check-report.*
+
+# OS specific
+Thumbs.db
+
