@@ -122,7 +122,6 @@ During development the frontend runs on `http://localhost:3000` and communicates
 
 ![Data flow between Next.js client and Spring Boot API](chart.png)
 
-
 1. User interacts with the Next.js UI (e.g., visiting `/users` or submitting the creation form).
 2. Frontend hook issues an HTTP request to the Spring Boot API (`GET/POST/PUT/DELETE /users`).
 3. Controller delegates to `UserService`, which manages the in-memory store (or database when extended).
