@@ -17,26 +17,34 @@ During development the frontend runs on `http://localhost:3000` and communicates
 ## Quick Start Guide
 
 1. **Clone and enter the repository**
+
    ```bash
-   git clone <repo-url>
-   cd <repo-directory>
+   git clone https://github.com/maydaythecoder/NextJS-Spring-Boot
+   cd NextJS-Spring-Boot
    ```
+
 2. **Install dependencies**
+
    ```bash
    ./backend/mvnw dependency:resolve
    (cd frontend && npm install)
    ```
+
 3. **Prepare environment files**
+
    ```bash
    cp backend/env.example backend/.env.local
    cp frontend/env.example frontend/.env.local
    ```
+
    Adjust the copied files if you need non-default ports or database credentials.
 4. **Launch both services**
+
    ```bash
    chmod +x run.sh
    ./run.sh
    ```
+
 5. **Verify endpoints**
    - Frontend: `http://localhost:3000`
    - API: `http://localhost:8080/users`
@@ -112,8 +120,20 @@ During development the frontend runs on `http://localhost:3000` and communicates
 
 ## Data Flow
 
-```txt
-Client (Next.js) --> fetch() --> Spring Boot Controller --> Service --> Response JSON --> Client state update
+```mermaid
+sequenceDiagram
+    participant UI as Next.js Client
+    participant API as Spring Boot REST API
+    participant Service as UserService
+    participant Store as Data Store
+
+    UI->>API: HTTP request (GET/POST/PUT/DELETE /users)
+    API->>Service: Delegate operation
+    Service->>Store: Read/Write users
+    Store-->>Service: Data result
+    Service-->>API: Response payload
+    API-->>UI: JSON response
+    UI-->>UI: Update client state & render
 ```
 
 1. User interacts with the Next.js UI (e.g., visiting `/users` or submitting the creation form).
