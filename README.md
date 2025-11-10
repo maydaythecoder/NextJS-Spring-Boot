@@ -1,11 +1,45 @@
 # Project Overview
 
-This codebase adopts a decoupled architecture composed of:
+This codebase adopts a decoupled architecture composed of complementary services:
 
-- **Frontend:** A Next.js application providing the user interface, routing, and client-side state management.
-- **Backend:** A Spring Boot REST API responsible for business logic, validation, persistence, and security.
+| Service  | Stack                       | Purpose                                          | Default Port |
+|----------|-----------------------------|--------------------------------------------------|--------------|
+| Frontend | Next.js (React, TypeScript) | User interface, routing, client state management | `3000`       |
+| Backend  | Spring Boot (Java 21)       | Business logic, validation, persistence, security| `8080`       |
+
+- **Frontend:** Next.js application providing the user interface, routing, and client-side state management.
+- **Backend:** Spring Boot REST API responsible for business logic, validation, persistence, and security.
 
 During development the frontend runs on `http://localhost:3000` and communicates with the backend on `http://localhost:8080` via HTTP.
+
+> **Architecture Snapshot:** The frontend communicates with the backend exclusively through REST endpoints. CORS and Spring Security enforce a clean boundary between presentation and domain logic.
+
+## Quick Start Guide
+
+1. **Clone and enter the repository**
+   ```bash
+   git clone <repo-url>
+   cd <repo-directory>
+   ```
+2. **Install dependencies**
+   ```bash
+   ./backend/mvnw dependency:resolve
+   (cd frontend && npm install)
+   ```
+3. **Prepare environment files**
+   ```bash
+   cp backend/env.example backend/.env.local
+   cp frontend/env.example frontend/.env.local
+   ```
+   Adjust the copied files if you need non-default ports or database credentials.
+4. **Launch both services**
+   ```bash
+   chmod +x run.sh
+   ./run.sh
+   ```
+5. **Verify endpoints**
+   - Frontend: `http://localhost:3000`
+   - API: `http://localhost:8080/users`
 
 ## File & Folder Structure
 
@@ -78,15 +112,15 @@ During development the frontend runs on `http://localhost:3000` and communicates
 
 ## Data Flow
 
+```txt
+Client (Next.js) --> fetch() --> Spring Boot Controller --> Service --> Response JSON --> Client state update
+```
+
 1. User interacts with the Next.js UI (e.g., visiting `/users` or submitting the creation form).
 2. Frontend hook issues an HTTP request to the Spring Boot API (`GET/POST/PUT/DELETE /users`).
 3. Controller delegates to `UserService`, which manages the in-memory store (or database when extended).
 4. Service returns results to the controller, which serializes them as JSON responses.
 5. Frontend receives the JSON payload and updates component state to render the latest data.
-
-``` txt
-Client (Next.js) --> fetch() --> Spring Boot Controller --> Service --> Response JSON --> Client state update
-```
 
 ## Security
 
