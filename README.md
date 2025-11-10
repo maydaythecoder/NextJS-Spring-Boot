@@ -120,21 +120,8 @@ During development the frontend runs on `http://localhost:3000` and communicates
 
 ## Data Flow
 
-```mermaid
-sequenceDiagram
-    participant UI as Next.js Client
-    participant API as Spring Boot REST API
-    participant Service as UserService
-    participant Store as Data Store
+![Data flow between Next.js client and Spring Boot API](chart.png)
 
-    UI->>API: HTTP request (GET/POST/PUT/DELETE /users)
-    API->>Service: Delegate operation
-    Service->>Store: Read/Write users
-    Store-->>Service: Data result
-    Service-->>API: Response payload
-    API-->>UI: JSON response
-    UI-->>UI: Update client state & render
-```
 
 1. User interacts with the Next.js UI (e.g., visiting `/users` or submitting the creation form).
 2. Frontend hook issues an HTTP request to the Spring Boot API (`GET/POST/PUT/DELETE /users`).
