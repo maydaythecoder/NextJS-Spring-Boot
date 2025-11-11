@@ -14,30 +14,35 @@ import java.util.UUID;
  */
 public class User
 {
-    private UUID id;
+    private String id = UUID.randomUUID().toString();
+    private UserType type;
     private String name;
     private String email;
     // Empty constructor (required by frameworks and JSON parsers)
-    public User()
-    {
-
-    }
+    public User() {}
     // Constructor for creating User objects manually
-    public User(UUID id, String name, String email)
+    public User(String id, UserType type, String name, String email)
     {
         this.id = id;
+        this.type = type;
         this.name = name;
         this.email = email;
     }
     // Getters/Setters allow controlled access to private fields
-    public UUID getId()
+    public String getId()
     {
         return id;
     }
-    public void setId(UUID id)
+    public void setId(String id)
     {
         this.id = id;
     }
+    public UserType getType()
+    {
+        return type;
+    }
+    public void setType(UserType type) {this.type = type;}
+
     public String getName()
     {
         return name;

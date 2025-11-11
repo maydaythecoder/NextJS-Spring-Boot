@@ -1,0 +1,39 @@
+[
+  {
+    "id": "1e1b6baf-44ce-4b6a-a30e-1a7b0f11c101",
+    "name": "Brazil National Team",
+    "manager": "Fernando Tavares",
+    "playerIds": [
+      "b101",
+      "b102",
+      "b103",
+      "b104",
+      "b105",
+      "b106",
+      "b107",
+      "b108",
+      "b109",
+      "b110",
+      "b111"
+    ]
+  },
+  {
+    "id": "2f2c7caf-55df-4c7b-b41e-2b8c1f22d202",
+    "name": "France National Team",
+    "manager": "Jean-Luc Dupont",
+    "playerIds": [
+      "f201",
+      "f202",
+      "f203",
+      "f204",
+      "f205",
+      "f206",
+      "f207",
+      "f208",
+      "f209",
+      "f210",
+      "f211"
+    ]
+  }
+]
+

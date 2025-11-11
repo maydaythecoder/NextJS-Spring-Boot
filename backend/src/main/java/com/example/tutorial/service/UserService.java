@@ -2,7 +2,11 @@ package com.example.tutorial.service;
 
 import com.example.tutorial.model.User;
 import org.springframework.stereotype.Service;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 /*
  * Handles the business logic and data storage for User objects.
@@ -16,7 +20,7 @@ import java.util.*;
 @Service
 public class UserService
 {
-    private final Map<UUID, User> users = new HashMap<>();
+    private final Map<String, User> users = new HashMap<>();
 
     /*
      * Get all users currently stored.
@@ -33,7 +37,7 @@ public class UserService
      * Input: user ID (Long)
      * Output: User object or null if not found
      */
-    public User getUserById(UUID id)
+    public User getUserById(String id)
     {
         return users.get(id);
     }
@@ -45,7 +49,10 @@ public class UserService
      */
     public User createUser(User user)
     {
-        user.setId(UUID.randomUUID());
+        if (user.getId() == null || user.getId().isBlank())
+        {
+            user.setId(UUID.randomUUID().toString());
+        }
         users.put(user.getId(), user);
         return user;
     }
@@ -55,7 +62,7 @@ public class UserService
      * Input: user ID (Long)
      * Output: none
      */
-    public void deleteUser(UUID id)
+    public void deleteUser(String id)
     {
         users.remove(id);
     }

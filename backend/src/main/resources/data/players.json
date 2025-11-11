@@ -1,0 +1,289 @@
+[
+  {
+    "id": "b101",
+    "name": "Alisson Becker",
+    "position": "GOALKEEPER",
+    "stats": {
+      "GK_DIVING": { "value": 88 },
+      "GK_REFLEXES": { "value": 90 },
+      "GK_HANDLING": { "value": 85 },
+      "GK_POSITIONING": { "value": 87 },
+      "LEADERSHIP": { "value": 78 },
+      "STRENGTH": { "value": 79 }
+    }
+  },
+  {
+    "id": "b102",
+    "name": "Marquinhos",
+    "position": "DEFENDER",
+    "stats": {
+      "TACKLING": { "value": 89 },
+      "MARKING": { "value": 88 },
+      "STRENGTH": { "value": 85 },
+      "POSITIONING": { "value": 84 },
+      "ANTICIPATION": { "value": 83 },
+      "WORK_RATE": { "value": 82 }
+    }
+  },
+  {
+    "id": "b103",
+    "name": "Eder Militao",
+    "position": "DEFENDER",
+    "stats": {
+      "TACKLING": { "value": 87 },
+      "MARKING": { "value": 86 },
+      "STRENGTH": { "value": 88 },
+      "HEADING": { "value": 82 },
+      "SPEED": { "value": 80 },
+      "WORK_RATE": { "value": 79 }
+    }
+  },
+  {
+    "id": "b104",
+    "name": "Alex Sandro",
+    "position": "DEFENDER",
+    "stats": {
+      "TACKLING": { "value": 84 },
+      "CROSSING": { "value": 78 },
+      "STAMINA": { "value": 82 },
+      "SPEED": { "value": 81 },
+      "POSITIONING": { "value": 80 },
+      "WORK_RATE": { "value": 83 }
+    }
+  },
+  {
+    "id": "b105",
+    "name": "Casemiro",
+    "position": "MIDFIELDER",
+    "stats": {
+      "TACKLING": { "value": 88 },
+      "PASSING": { "value": 82 },
+      "STRENGTH": { "value": 86 },
+      "VISION": { "value": 79 },
+      "WORK_RATE": { "value": 85 },
+      "LEADERSHIP": { "value": 84 }
+    }
+  },
+  {
+    "id": "b106",
+    "name": "Bruno Guimarães",
+    "position": "MIDFIELDER",
+    "stats": {
+      "PASSING": { "value": 86 },
+      "VISION": { "value": 85 },
+      "BALL_CONTROL": { "value": 84 },
+      "WORK_RATE": { "value": 83 },
+      "STAMINA": { "value": 82 },
+      "ANTICIPATION": { "value": 81 }
+    }
+  },
+  {
+    "id": "b107",
+    "name": "Lucas Paquetá",
+    "position": "MIDFIELDER",
+    "stats": {
+      "PASSING": { "value": 85 },
+      "DRIBBLING": { "value": 86 },
+      "VISION": { "value": 83 },
+      "COMPOSURE": { "value": 82 },
+      "WORK_RATE": { "value": 81 },
+      "STAMINA": { "value": 79 }
+    }
+  },
+  {
+    "id": "b108",
+    "name": "Raphinha",
+    "position": "FORWARD",
+    "stats": {
+      "SPEED": { "value": 90 },
+      "DRIBBLING": { "value": 88 },
+      "CROSSING": { "value": 84 },
+      "FINISHING": { "value": 82 },
+      "WORK_RATE": { "value": 78 },
+      "STAMINA": { "value": 81 }
+    }
+  },
+  {
+    "id": "b109",
+    "name": "Vinícius Júnior",
+    "position": "FORWARD",
+    "stats": {
+      "SPEED": { "value": 95 },
+      "DRIBBLING": { "value": 92 },
+      "FINISHING": { "value": 88 },
+      "BALL_CONTROL": { "value": 90 },
+      "WORK_RATE": { "value": 80 },
+      "COMPOSURE": { "value": 79 }
+    }
+  },
+  {
+    "id": "b110",
+    "name": "Neymar Jr.",
+    "position": "FORWARD",
+    "stats": {
+      "DRIBBLING": { "value": 94 },
+      "PASSING": { "value": 88 },
+      "FINISHING": { "value": 91 },
+      "VISION": { "value": 90 },
+      "COMPOSURE": { "value": 89 },
+      "CREATIVITY": { "value": 92 }
+    }
+  },
+  {
+    "id": "b111",
+    "name": "Richarlison",
+    "position": "FORWARD",
+    "stats": {
+      "FINISHING": { "value": 85 },
+      "HEADING": { "value": 83 },
+      "STRENGTH": { "value": 82 },
+      "SPEED": { "value": 84 },
+      "WORK_RATE": { "value": 81 },
+      "STAMINA": { "value": 82 }
+    }
+  },
+  {
+    "id": "f201",
+    "name": "Mike Maignan",
+    "position": "GOALKEEPER",
+    "stats": {
+      "GK_DIVING": { "value": 87 },
+      "GK_REFLEXES": { "value": 88 },
+      "GK_HANDLING": { "value": 85 },
+      "GK_POSITIONING": { "value": 86 },
+      "LEADERSHIP": { "value": 75 },
+      "STRENGTH": { "value": 78 }
+    }
+  },
+  {
+    "id": "f202",
+    "name": "Jules Koundé",
+    "position": "DEFENDER",
+    "stats": {
+      "TACKLING": { "value": 86 },
+      "MARKING": { "value": 85 },
+      "SPEED": { "value": 83 },
+      "STRENGTH": { "value": 82 },
+      "POSITIONING": { "value": 84 },
+      "WORK_RATE": { "value": 80 }
+    }
+  },
+  {
+    "id": "f203",
+    "name": "Raphaël Varane",
+    "position": "DEFENDER",
+    "stats": {
+      "TACKLING": { "value": 87 },
+      "MARKING": { "value": 89 },
+      "STRENGTH": { "value": 86 },
+      "HEADING": { "value": 85 },
+      "POSITIONING": { "value": 84 },
+      "WORK_RATE": { "value": 78 }
+    }
+  },
+  {
+    "id": "f204",
+    "name": "Theo Hernandez",
+    "position": "DEFENDER",
+    "stats": {
+      "SPEED": { "value": 90 },
+      "CROSSING": { "value": 82 },
+      "STAMINA": { "value": 85 },
+      "TACKLING": { "value": 80 },
+      "WORK_RATE": { "value": 83 },
+      "BALANCE": { "value": 81 }
+    }
+  },
+  {
+    "id": "f205",
+    "name": "Aurélien Tchouaméni",
+    "position": "MIDFIELDER",
+    "stats": {
+      "TACKLING": { "value": 85 },
+      "PASSING": { "value": 82 },
+      "STRENGTH": { "value": 84 },
+      "VISION": { "value": 79 },
+      "WORK_RATE": { "value": 83 },
+      "ANTICIPATION": { "value": 81 }
+    }
+  },
+  {
+    "id": "f206",
+    "name": "Eduardo Camavinga",
+    "position": "MIDFIELDER",
+    "stats": {
+      "PASSING": { "value": 84 },
+      "VISION": { "value": 83 },
+      "BALL_CONTROL": { "value": 85 },
+      "STAMINA": { "value": 84 },
+      "WORK_RATE": { "value": 82 },
+      "DRIBBLING": { "value": 82 }
+    }
+  },
+  {
+    "id": "f207",
+    "name": "Antoine Griezmann",
+    "position": "MIDFIELDER",
+    "stats": {
+      "PASSING": { "value": 87 },
+      "VISION": { "value": 89 },
+      "FINISHING": { "value": 86 },
+      "COMPOSURE": { "value": 88 },
+      "WORK_RATE": { "value": 80 },
+      "CREATIVITY": { "value": 90 }
+    }
+  },
+  {
+    "id": "f208",
+    "name": "Ousmane Dembélé",
+    "position": "FORWARD",
+    "stats": {
+      "SPEED": { "value": 94 },
+      "DRIBBLING": { "value": 91 },
+      "CROSSING": { "value": 84 },
+      "FINISHING": { "value": 80 },
+      "STAMINA": { "value": 78 },
+      "WORK_RATE": { "value": 77 }
+    }
+  },
+  {
+    "id": "f209",
+    "name": "Kylian Mbappé",
+    "position": "FORWARD",
+    "stats": {
+      "SPEED": { "value": 97 },
+      "FINISHING": { "value": 93 },
+      "DRIBBLING": { "value": 92 },
+      "BALL_CONTROL": { "value": 90 },
+      "COMPOSURE": { "value": 91 },
+      "SHOT_POWER": { "value": 90 }
+    }
+  },
+  {
+    "id": "f210",
+    "name": "Kingsley Coman",
+    "position": "FORWARD",
+    "stats": {
+      "SPEED": { "value": 92 },
+      "DRIBBLING": { "value": 89 },
+      "CROSSING": { "value": 83 },
+      "FINISHING": { "value": 81 },
+      "STAMINA": { "value": 80 },
+      "WORK_RATE": { "value": 79 }
+    }
+  },
+  {
+    "id": "f211",
+    "name": "Olivier Giroud",
+    "position": "FORWARD",
+    "stats": {
+      "FINISHING": { "value": 87 },
+      "HEADING": { "value": 88 },
+      "STRENGTH": { "value": 86 },
+      "COMPOSURE": { "value": 84 },
+      "POSITIONING": { "value": 85 },
+      "WORK_RATE": { "value": 77 }
+    }
+  }
+]
+

@@ -1,0 +1,24 @@
+[
+  {
+    "id": "s301",
+    "name": "Marcos Vieira",
+    "email": "marcos.vieira@cbf.example",
+    "regions": ["South America", "Europe"],
+    "trackedPlayerIds": ["b109", "b110", "f209"]
+  },
+  {
+    "id": "s302",
+    "name": "Claire Rousseau",
+    "email": "claire.rousseau@fff.example",
+    "regions": ["France", "Iberian Peninsula"],
+    "trackedPlayerIds": ["f208", "f210", "b108"]
+  },
+  {
+    "id": "s303",
+    "name": "Diego Martinez",
+    "email": "diego.martinez@latamscouts.example",
+    "regions": ["Argentina", "Brazil"],
+    "trackedPlayerIds": ["b105", "b106", "b111"]
+  }
+]
+
