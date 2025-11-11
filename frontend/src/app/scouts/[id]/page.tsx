@@ -1,35 +1,37 @@
 import Link from "next/link";
-import { fetchUserById } from "@/lib";
-import { UserDetailCard, ErrorState } from "@/components";
+import { ErrorState, ScoutDetailCard } from "@/components";
+import { fetchScoutById, fetchScoutWatchlist, type Player } from "@/lib";
 
-export default async function UserDetailPage({
+export default async function ScoutDetailPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
 
-  let user = null;
+  let scout = null;
+  let watchlist: Player[] = [];
   let fetchError: Error | null = null;
 
   try {
-    user = await fetchUserById(id);
+    scout = await fetchScoutById(id);
+    watchlist = scout ? await fetchScoutWatchlist(id) : [];
   } catch (error) {
     fetchError = error as Error;
   }
 
   if (fetchError) {
     return (
-      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
         <ErrorState
-          title="Unable to load profile"
+          title="Unable to load scout dossier"
           message={fetchError.message}
           action={
             <Link
-              href="/users"
+              href="/scouts"
               className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-3 py-1.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-700 focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
             >
-              Back to directory
+              Back to scouts
             </Link>
           }
         />
@@ -37,18 +39,18 @@ export default async function UserDetailPage({
     );
   }
 
-  if (!user) {
+  if (!scout) {
     return (
-      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
         <ErrorState
-          title="User not found"
-          message="We couldn’t locate the requested user. It may have been removed."
+          title="Scout not found"
+          message="It looks like this scout profile no longer exists."
           action={
             <Link
-              href="/users"
+              href="/scouts"
               className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-3 py-1.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-700 focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
             >
-              Back to directory
+              Back to scouts
             </Link>
           }
         />
@@ -57,8 +59,9 @@ export default async function UserDetailPage({
   }
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-      <UserDetailCard user={user} />
+    <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+      <ScoutDetailCard scout={scout} watchlist={watchlist} />
     </div>
   );
 }
+

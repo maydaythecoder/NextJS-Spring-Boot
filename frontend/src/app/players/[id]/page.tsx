@@ -1,19 +1,19 @@
 import Link from "next/link";
-import { fetchUserById } from "@/lib";
-import { UserDetailCard, ErrorState } from "@/components";
+import { ErrorState, PlayerDetailCard } from "@/components";
+import { fetchPlayerById } from "@/lib";
 
-export default async function UserDetailPage({
+export default async function PlayerDetailPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
 
-  let user = null;
+  let player = null;
   let fetchError: Error | null = null;
 
   try {
-    user = await fetchUserById(id);
+    player = await fetchPlayerById(id);
   } catch (error) {
     fetchError = error as Error;
   }
@@ -22,14 +22,14 @@ export default async function UserDetailPage({
     return (
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
         <ErrorState
-          title="Unable to load profile"
+          title="Unable to load player profile"
           message={fetchError.message}
           action={
             <Link
-              href="/users"
+              href="/players"
               className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-3 py-1.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-700 focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
             >
-              Back to directory
+              Back to players
             </Link>
           }
         />
@@ -37,18 +37,18 @@ export default async function UserDetailPage({
     );
   }
 
-  if (!user) {
+  if (!player) {
     return (
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
         <ErrorState
-          title="User not found"
-          message="We couldn’t locate the requested user. It may have been removed."
+          title="Player not found"
+          message="We couldn’t locate the requested player. They may have moved clubs or been removed."
           action={
             <Link
-              href="/users"
+              href="/players"
               className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-3 py-1.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-700 focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
             >
-              Back to directory
+              Back to players
             </Link>
           }
         />
@@ -58,7 +58,8 @@ export default async function UserDetailPage({
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-      <UserDetailCard user={user} />
+      <PlayerDetailCard player={player} />
     </div>
   );
 }
+

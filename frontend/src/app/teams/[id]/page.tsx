@@ -1,35 +1,35 @@
 import Link from "next/link";
-import { fetchUserById } from "@/lib";
-import { UserDetailCard, ErrorState } from "@/components";
+import { ErrorState, TeamDetailCard } from "@/components";
+import { fetchTeamWithPlayers } from "@/lib";
 
-export default async function UserDetailPage({
+export default async function TeamDetailPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
 
-  let user = null;
+  let team = null;
   let fetchError: Error | null = null;
 
   try {
-    user = await fetchUserById(id);
+    team = await fetchTeamWithPlayers(id);
   } catch (error) {
     fetchError = error as Error;
   }
 
   if (fetchError) {
     return (
-      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
         <ErrorState
-          title="Unable to load profile"
+          title="Unable to load team"
           message={fetchError.message}
           action={
             <Link
-              href="/users"
+              href="/teams"
               className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-3 py-1.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-700 focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
             >
-              Back to directory
+              Back to teams
             </Link>
           }
         />
@@ -37,18 +37,18 @@ export default async function UserDetailPage({
     );
   }
 
-  if (!user) {
+  if (!team) {
     return (
-      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
         <ErrorState
-          title="User not found"
-          message="We couldn’t locate the requested user. It may have been removed."
+          title="Team not found"
+          message="We couldn’t locate that team. It may have been removed."
           action={
             <Link
-              href="/users"
+              href="/teams"
               className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-3 py-1.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-700 focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
             >
-              Back to directory
+              Back to teams
             </Link>
           }
         />
@@ -57,8 +57,9 @@ export default async function UserDetailPage({
   }
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-      <UserDetailCard user={user} />
+    <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+      <TeamDetailCard team={team} players={team.players} />
     </div>
   );
 }
+

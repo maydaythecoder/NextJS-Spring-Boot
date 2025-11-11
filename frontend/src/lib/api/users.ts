@@ -1,28 +1,16 @@
 import type { CreateUserPayload, UserSummary, FetchOptions } from "../types";
-
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8080";
-
-async function handleResponse<T>(response: Response): Promise<T> {
-  if (!response.ok) {
-    const message = `Request failed with status ${response.status}`;
-    throw new Error(message);
-  }
-  return (await response.json()) as T;
-}
+import { API_BASE_URL, handleResponse, withDefaults } from "./client";
 
 export async function fetchUsers(options?: FetchOptions) {
   const response = await fetch(`${API_BASE_URL}/users`, {
-    ...options,
-    next: { revalidate: 0 },
+    ...withDefaults(options),
   });
   return handleResponse<UserSummary[]>(response);
 }
 
 export async function fetchUserById(id: string, options?: FetchOptions) {
   const response = await fetch(`${API_BASE_URL}/users/${id}`, {
-    ...options,
-    next: { revalidate: 0 },
+    ...withDefaults(options),
   });
 
   if (response.status === 404) {
@@ -39,6 +27,7 @@ export async function createUser(payload: CreateUserPayload) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(payload),
+    ...withDefaults(),
   });
   if (response.status === 409) {
     const message = "Email already in use.";
